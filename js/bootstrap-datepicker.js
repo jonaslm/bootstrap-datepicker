@@ -102,6 +102,7 @@
 
 	var Datepicker = function(element, options){
 		$.data(element, 'datepicker', this);
+		this._initialized = true;
 
 		this._events = [];
 		this._secondaryEvents = [];
@@ -178,6 +179,7 @@
 		if (this.isInline){
 			this.show();
 		}
+		this._initialized = false;
 	};
 
 	Datepicker.prototype = {
@@ -816,7 +818,7 @@
 			}
 			else if (this.dates.length){
 				// setting date by typing
-				if (String(oldDates) !== String(this.dates) && fromArgs) {
+				if (String(oldDates) !== String(this.dates) && this._initialized) {
 					this._trigger('changeDate');
 					this.element.change();
 				}
