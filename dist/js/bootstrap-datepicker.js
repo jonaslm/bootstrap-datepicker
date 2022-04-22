@@ -160,7 +160,7 @@
 		if (this.isInline){
 			this.show();
 		}
-		this._initialized = false;
+		this._initialized = true;
 	};
 
 	Datepicker.prototype = {
